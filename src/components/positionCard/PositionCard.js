@@ -16,6 +16,7 @@ export default function PositionCard({ data, locationFilter, onClickHeandlerBack
     useEffect(() => {
         if (filteredArr) {
             setShowPositions(true);
+            console.log("object")
         }
     }, [filteredArr])
 

@@ -1,5 +1,4 @@
 import styled from "@emotion/styled";
-import { clearConfigCache } from "prettier";
 
 export const CardList = styled.ul`
     padding: 0;
