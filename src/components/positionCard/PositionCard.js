@@ -9,35 +9,49 @@ import filterArr from 'utils/filterArr'
 
 
 export default function PositionCard({ data, locationFilter, onClickHeandlerBack }) {
-    const [filteredArr, setFilteredArr] = useState(filterArr(locationFilter, data))
+    const [filteredArr, setFilteredArr] = useState([])
     const [showPosition, setShowPositions] = useState(false)
 
+    useEffect(() => {
+        setFilteredArr(filterArr(locationFilter, data))
+    }, [data, locationFilter])
 
     useEffect(() => {
         if (filteredArr) {
             setShowPositions(true);
-            console.log("object")
         }
     }, [filteredArr])
 
     return (
         <div>
             <CardList>
-                {filteredArr.map(position => (
-                    <CardListItem key={position.num}>
-                        <CardTextSection className="text">{position.name}</CardTextSection>
-                        <CardTextSection className="block quantity">{position.quantity}</CardTextSection>
-                        <CardTextSection className="block uht-btn">У<br />{position.uhtQuant}</CardTextSection>
+                {showPosition && filteredArr.map(position => (
+                    <CardListItem
+                        key={position.num}
+                        cargo={position.cargo}
+                    >
+                        <CardTextSection
+                            onClick={(e) => console.log(e)}
+                            className="text">{position.name}</CardTextSection>
+                        <CardTextSection
+                            changeQ={position.changeQ}
+                            className="block quantity"
+                        >{position.quantity}</CardTextSection>
+                        <CardTextSection
+                            className="block uht-btn"
+                            uhtishka={position.uhtishka}>У<br />{position.uhtQuant}</CardTextSection>
                         <CardButton>!</CardButton>
                     </CardListItem>
                 ))}
             </CardList>
             <CardList>
                 <CardListItem>
-                    <CardTextSection onClick={onClickHeandlerBack}>‹‹‹ к списку складов</CardTextSection>
+                    <CardTextSection
+                        onClick={onClickHeandlerBack}
+                    >‹‹‹ к списку складов</CardTextSection>
                 </CardListItem>
             </CardList>
 
-        </div>
+        </div >
     )
 }

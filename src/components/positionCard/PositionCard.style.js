@@ -16,7 +16,8 @@ export const CardListItem = styled.li`
     width: 100%;
     min-height: 60px;
     box-shadow: 0 0 10px rgba(0,0,0,0.5);
-    background-color: #0099FF;
+    background-color: ${props =>
+        props.cargo ? '#0099FF' : '#afafaf'} ;
     border-radius: 5px 5px 30px 5px;
     color: #ffffff;
     margin-bottom: 20px;
@@ -29,7 +30,12 @@ export const CardTextSection = styled.p`
     }
     &.uht-btn{
         text-align: center;
-        background-color: green;
+        background-color: ${props =>
+        props.uhtishka ? '#0099FF' : '#0ca00c'
+    };
+    color: ${props =>
+        props.uhtishka ? '#0099FF' : '#0ca00c'
+    };
     }
     &.block{
         display: flex;
@@ -40,7 +46,8 @@ export const CardTextSection = styled.p`
         border-radius: 5px 5px 15px 5px;
     }
     &.quantity{
-        background-color: #faa93e;
+        background-color: ${props =>
+        props.changeQ ? '#faa93e' : '#ff1900'};
     }
 `;
 

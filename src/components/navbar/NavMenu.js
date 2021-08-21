@@ -4,7 +4,6 @@ import {
     NavBtn,
     NavText
 } from "components/navbar/NavMenu.style"
-import { useEffect } from "react";
 
 
 export default function ButtonAppBar({ data }) {
@@ -13,7 +12,7 @@ export default function ButtonAppBar({ data }) {
     return (
         <NavContainer>
             <NavSection className="counter">
-                <NavText>{data && data.length}</NavText>
+                <NavText>{data && data.length} позиций</NavText>
             </NavSection>
             <NavSection className="buttons">
                 <NavBtn type='button'>Склады</NavBtn>
