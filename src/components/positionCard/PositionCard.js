@@ -12,18 +12,17 @@ export default function PositionCard({
     locationFilter,
     onClickHeandlerBack,
     oClickUpdate,
-    noChangeQuantity
+    noChangeQuantity,
+    onAlertHeandle
 }) {
     const [filteredArr, setFilteredArr] = useState([]);
     const [showPosition, setShowPositions] = useState(false);
 
     const showQuantity = (changeQ, changedQTo, quantity) => {
         if (changeQ === "false") {
-            console.log(false)
             return quantity
         }
         if (changeQ === "true") {
-            console.log(true)
             return changedQTo
         }
     };
@@ -72,8 +71,11 @@ export default function PositionCard({
                                 {position.uhtQuant}
                             </CardTextSection>
                             <CardButton
-                                className="alert"
-                                cargo={position.cargo}>!</CardButton>
+                                id={position.id}
+                                type="button"
+                                cargo={position.cargo}
+                                onClick={onAlertHeandle}
+                            >!</CardButton>
                         </CardListItem>
                     ))}
             </CardList>

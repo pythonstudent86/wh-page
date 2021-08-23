@@ -68,6 +68,7 @@ export const CardButton = styled.button`
   color: #ffffff;
   width: 50px;
   height: 50px;
+  border: 1px solid #afafaf;
   background-color: ${props =>
     props.cargo === "false" ? "#0099FF" : "#afafaf"};  margin-right: auto;
   margin-left: auto;

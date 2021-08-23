@@ -10,7 +10,6 @@ const fetchData = async () => {
 const fetchUpdateData = async (id, key, value, key1 = null, value1 = null) => {
   let content = {}
   if (key1 !== null) {
-    console.log("not null")
     content = {
       [key1]: value1,
       [key]: value,
@@ -20,7 +19,7 @@ const fetchUpdateData = async (id, key, value, key1 = null, value1 = null) => {
   }
   return await axios
     .patch(`https://wh-data-serv.herokuapp.com/positions/${id}`, content)
-    .then((resp) => console.log(resp));
+    .then((resp) => console.log("request status: ", resp.status));
 };
 
 export { fetchData, fetchUpdateData };

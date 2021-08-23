@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 
 import { fetchData, fetchUpdateData } from "utils/fetchData";
+import requestTelegram from "utils/tegramm-bot-msg"
 
 import ButtonAppBar from "components/navbar/NavMenu";
 import WarehouseHeader from "components/warehouseHeader/WarehouseHeader";
@@ -45,8 +46,6 @@ function App() {
 
   const noChangeQuantity = (e) => {
     const inputData = parseInt(prompt());
-    console.log(e.target.id)
-    console.log(inputData)
     if (!isNaN(inputData)) {
       fetchUpdateData(e.target.id, "changeQ", "true", "changedQTo", inputData)
       e.target.textContent = inputData;
@@ -69,6 +68,12 @@ function App() {
       }
 
     }
+  }
+
+  const onAlertHeandle = (e) => {
+    const positionName = e.target.previousSibling.previousSibling.previousSibling.textContent;
+    const inputData = prompt();
+    requestTelegram(positionName, inputData)
   }
 
   useEffect(() => {
@@ -104,6 +109,7 @@ function App() {
           onClickHeandlerBack={onClickHeandlerBack}
           oClickUpdate={oClickUpdate}
           noChangeQuantity={noChangeQuantity}
+          onAlertHeandle={onAlertHeandle}
         />)}
       {
         showAllPositions && (
