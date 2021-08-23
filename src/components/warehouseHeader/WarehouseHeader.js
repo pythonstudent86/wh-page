@@ -6,7 +6,7 @@ import {
 } from "components/warehouseHeader/WarehouseHeader.style";
 import locationArr from "utils/locationArr";
 
-export default function WarehouseHeader({ data, onClickHeandler }) {
+export default function WarehouseHeader({ data, onClickHeandler, setReloadState, setLoading }) {
   const [whName, setWhName] = useState([]);
 
   useEffect(() => {
@@ -14,6 +14,11 @@ export default function WarehouseHeader({ data, onClickHeandler }) {
       setWhName(locationArr(data));
     }
   }, [data]);
+
+  useEffect(() => {
+    setReloadState(true);
+    setLoading(true);
+  }, [setLoading, setReloadState])
 
   return (
     <HeadersList className="heders">
