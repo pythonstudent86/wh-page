@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 export const AllPositionList = styled.ul`
   padding: 0;
   list-style: none;
-  width: 460px;
+  width: 700px;
   margin-left: auto;
   margin-right: auto;
 `;
@@ -25,7 +25,7 @@ export const TextPosition = styled.p`
   display: block;
   margin-left: 15px;
   &.name {
-    width: 270px;
+    width: 500px;
   }
   &.quantity {
     width: 30px;
