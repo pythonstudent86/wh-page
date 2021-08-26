@@ -18,8 +18,7 @@ export const HeaderListItem = styled.li`
   width: 100%;
   height: 60px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  background-color: ${(props) =>
-    props.setDisable ? "#afafaf" : "#0099ff"}; //#faa93e;
+  background-color: ${(props) => (props.setDisable ? "#afafaf" : "#faa93e")};
   border-radius: 5px 5px 30px 5px;
   margin-bottom: 20px;
 `;
