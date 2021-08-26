@@ -24,12 +24,6 @@ export default function PositionCard({
     } else {
       return quantity;
     }
-    // if (!changeQ) {
-    //     return quantity
-    // }
-    // if (changeQ) {
-    //     return changedQTo
-    // }
   };
 
   useEffect(() => {

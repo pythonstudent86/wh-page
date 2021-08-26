@@ -76,6 +76,9 @@ function App() {
     const positionName =
       e.target.previousSibling.previousSibling.previousSibling.textContent;
     const inputData = prompt();
+    if (!inputData) {
+      return;
+    }
     requestTelegram(positionName, inputData);
   };
 
