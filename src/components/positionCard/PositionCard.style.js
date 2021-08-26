@@ -18,7 +18,7 @@ const colorSwitch = (props, color1, color2, color3, color4) => {
 export const CardList = styled.ul`
   padding: 0;
   list-style: none;
-  width: 460px;
+  width: 700px;
   margin-left: auto;
   margin-right: auto;
 `;
@@ -38,9 +38,9 @@ export const CardListItem = styled.li`
 `;
 
 export const CardTextSection = styled.p`
-  margin-left: 10px;
+  margin-left: 20px;
   &.text {
-    width: 250px;
+    width: 450px;
   }
   &.uht-btn {
     text-align: center;

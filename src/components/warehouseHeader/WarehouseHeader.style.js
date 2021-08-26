@@ -4,7 +4,7 @@ export const HeadersList = styled.ul`
   margin: 0;
   padding: 0;
   list-style: none;
-  width: 460px;
+  width: 700px;
   margin-left: auto;
   margin-right: auto;
 `;
