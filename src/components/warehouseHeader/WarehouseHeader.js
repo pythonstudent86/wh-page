@@ -28,8 +28,12 @@ export default function WarehouseHeader({
   return (
     <HeadersList className="heders">
       {whName.map((warehouse, index) => (
-        <HeaderListItem key={index} onClick={onClickHeandler}>
-          <HeaderText name="locationName">{warehouse}</HeaderText>
+        <HeaderListItem
+          key={index}
+          onClick={onClickHeandler}
+          setDisable={warehouse.set}
+        >
+          <HeaderText name="locationName">{warehouse.wh}</HeaderText>
         </HeaderListItem>
       ))}
     </HeadersList>
