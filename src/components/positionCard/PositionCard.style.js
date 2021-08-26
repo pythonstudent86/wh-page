@@ -1,18 +1,18 @@
 import styled from "@emotion/styled";
 
 const colorSwitch = (props, color1, color2, color3, color4) => {
-  if (props.cargo === "true" && props.uhtishka === "false") {
-    return color1
-  };
-  if (props.cargo === "true" && props.uhtishka === "true") {
-    return color2
-  };
-  if (props.cargo === "false" && props.uhtishka === "false") {
-    return color3
-  };
-  if (props.cargo === "false" && props.uhtishka === "true") {
-    return color4
-  };
+  if (props.cargo && !props.uhtishka) {
+    return color1;
+  }
+  if (props.cargo && props.uhtishka) {
+    return color2;
+  }
+  if (!props.cargo && !props.uhtishka) {
+    return color3;
+  }
+  if (!props.cargo && props.uhtishka) {
+    return color4;
+  }
 };
 
 export const CardList = styled.ul`
@@ -31,8 +31,7 @@ export const CardListItem = styled.li`
   width: 100%;
   min-height: 60px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  background-color: ${props =>
-    props.cargo === "false" ? "#0099FF" : "#afafaf"};
+  background-color: ${(props) => (props.cargo ? "#afafaf" : "#0099FF")};
   border-radius: 5px 5px 30px 5px;
   color: #ffffff;
   margin-bottom: 20px;
@@ -45,8 +44,10 @@ export const CardTextSection = styled.p`
   }
   &.uht-btn {
     text-align: center;
-    background-color: ${props => colorSwitch(props, "transparent", "#94d374", "transparent", "#94d374")};
-    color: ${props => colorSwitch(props, "transparent", "#ffffff", "transparent", "#ffffff")};
+    background-color: ${(props) =>
+      colorSwitch(props, "transparent", "#94d374", "transparent", "#94d374")};
+    color: ${(props) =>
+      colorSwitch(props, "transparent", "#ffffff", "transparent", "#ffffff")};
   }
   &.block {
     display: flex;
@@ -57,7 +58,7 @@ export const CardTextSection = styled.p`
     border-radius: 5px 5px 15px 5px;
   }
   &.quantity {
-    background-color: ${(props) => (props.changeQ === "false" ? "#faa93e" : "#ff1900")};
+    background-color: ${(props) => (props.changeQ ? "#ff1900" : "#faa93e")};
   }
 `;
 
@@ -69,7 +70,7 @@ export const CardButton = styled.button`
   width: 50px;
   height: 50px;
   border: 1px solid #afafaf;
-  background-color: ${props =>
-    props.cargo === "false" ? "#0099FF" : "#afafaf"};  margin-right: auto;
+  background-color: ${(props) => (props.cargo ? "#afafaf" : "#0099FF")};
+  margin-right: auto;
   margin-left: auto;
 `;

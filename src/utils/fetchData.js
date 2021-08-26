@@ -8,7 +8,7 @@ const fetchData = async () => {
 };
 
 const fetchUpdateData = async (id, key, value, key1 = null, value1 = null) => {
-  let content = {}
+  let content = {};
   if (key1 !== null) {
     content = {
       [key1]: value1,

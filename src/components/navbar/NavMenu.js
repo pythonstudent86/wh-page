@@ -8,7 +8,7 @@ import {
 export default function ButtonAppBar({
   data,
   onClickHeandlerBack,
-  onAllPositionHandler
+  onAllPositionHandler,
 }) {
   return (
     <NavContainer>
@@ -16,8 +16,12 @@ export default function ButtonAppBar({
         <NavText>{data && data.length} позиций</NavText>
       </NavSection>
       <NavSection className="buttons">
-        <NavBtn type="button" onClick={onClickHeandlerBack}>Склады</NavBtn>
-        <NavBtn type="button" onClick={onAllPositionHandler}>Все позиции</NavBtn>
+        <NavBtn type="button" onClick={onClickHeandlerBack}>
+          Склады
+        </NavBtn>
+        <NavBtn type="button" onClick={onAllPositionHandler}>
+          Все позиции
+        </NavBtn>
       </NavSection>
     </NavContainer>
   );
